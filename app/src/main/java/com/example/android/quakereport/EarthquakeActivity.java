@@ -26,6 +26,14 @@ public class EarthquakeActivity extends AppCompatActivity {
 
     public static final String LOG_TAG = EarthquakeActivity.class.getName();
 
+    /**
+     * Helpers link
+     * https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php
+     * https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_week.geojson
+     *
+     * https://github.com/udacity/ud843-QuakeReport
+     */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -24,9 +24,9 @@
 
     <!-- Style for TextView in text_item -->
     <style name="TextStyle">
-        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textAppearance">?android:textAppearanceMedium</item>
+        <item name="android:layout_weight">1</item>
     </style>
 
 </resources>

@@ -20,5 +20,9 @@
         android:id="@+id/date"
         style="@style/TextStyle"
         tools:text="Feb 2, 2016" />
+    <TextView
+        android:id="@+id/time"
+        style="@style/TextStyle"
+        tools:text="3:00 PM" />
 
 </LinearLayout>

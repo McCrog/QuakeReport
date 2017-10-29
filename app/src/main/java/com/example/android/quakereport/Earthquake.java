@@ -20,19 +20,20 @@ public class Earthquake {
      * Time when the event occurred.
      * Times are reported in milliseconds since the epoch ( 1970-01-01T00:00:00.000Z)
      */
-    private String mDate;
+    private long mTimeInMilliseconds;
 
     /**
-     * Create a new Earthquake object.
+     * Constructs a new {@link Earthquake} object.
      *
-     * @param magnitude the magnitude for the event
-     * @param location description of named geographic region near to the event
-     * @param date time when the event occurred
+     * @param magnitude is the magnitude (size) of the earthquake
+     * @param location is the city location of the earthquake
+     * @param timeInMilliseconds is the time in milliseconds (from the Epoch) when the
+     *  earthquake happened
      */
-    public Earthquake(String magnitude, String location, String date) {
+    public Earthquake(String magnitude, String location, long timeInMilliseconds) {
         this.mMagnitude = magnitude;
         this.mLocation = location;
-        this.mDate = date;
+        this.mTimeInMilliseconds = timeInMilliseconds;
     }
 
     /** Get the magnitude */
@@ -46,7 +47,7 @@ public class Earthquake {
     }
 
     /** Get the date */
-    public String getDate() {
-        return mDate;
+    public long getTimeInMilliseconds() {
+        return mTimeInMilliseconds;
     }
 }

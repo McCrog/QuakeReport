@@ -51,11 +51,21 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
         // the TextView.
         magnitudeTextView.setText(currentEarthquake.getMagnitude());
 
-        // Find the TextView in the list_item.xml layout with the ID magnitude.
-        TextView locationTextView = (TextView) listItemView.findViewById(R.id.location);
-        // Get the location from the currentEarthquake object and set this text on
+        String currentLocation = currentEarthquake.getLocation();
+
+        // Find the TextView in the list_item.xml layout with the ID offset.
+        TextView offsetTextView = (TextView) listItemView.findViewById(R.id.offset);
+        // Get the location from the formatLocation method and set this text on
         // the TextView.
-        locationTextView.setText(currentEarthquake.getLocation());
+        // 0 index is a location offset string
+        offsetTextView.setText(formatLocation(currentLocation)[0]);
+
+        // Find the TextView in the list_item.xml layout with the ID location.
+        TextView locationTextView = (TextView) listItemView.findViewById(R.id.location);
+        // Get the location from the formatLocation method and set this text on
+        // the TextView.
+        // 1 index is a primary location string
+        locationTextView.setText(formatLocation(currentLocation)[1]);
 
         // Create a new Date object from the time in milliseconds of the earthquake
         Date dateObject = new Date(currentEarthquake.getTimeInMilliseconds());
@@ -92,5 +102,24 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
     private String formatTime(Date dateObject) {
         SimpleDateFormat timeFormat = new SimpleDateFormat("h:mm a");
         return timeFormat.format(dateObject);
+    }
+
+    /**
+     * Returns a formatted string array from the location of the earthquake.
+     * @return String array
+     * locationOffset - 0 index
+     * primaryLocation - 1 index
+     */
+    private String[] formatLocation(String location) {
+        String locationOffset = "Near the";
+        String primaryLocation = location;
+        int stringLength = location.length();
+        if (location.contains("of")) {
+            int indexOfCenter = location.indexOf("of");
+            locationOffset = location.substring(0, indexOfCenter + 2);
+            primaryLocation = location.substring(indexOfCenter + 3, stringLength);
+        }
+
+        return new String[]{locationOffset, primaryLocation};
     }
 }

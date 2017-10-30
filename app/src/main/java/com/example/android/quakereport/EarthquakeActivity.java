@@ -26,9 +26,10 @@ public class EarthquakeActivity extends AppCompatActivity {
     public static final String LOG_TAG = EarthquakeActivity.class.getName();
 
     /**
-     * Helpers link
+     * Help links
      * https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php
      * https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_week.geojson
+     * https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2016-01-01&endtime=2016-01-31&minmag=6&limit=10
      *
      * https://github.com/udacity/ud843-QuakeReport
      */

@@ -12,6 +12,11 @@
         tools:text="7.1" />
 
     <TextView
+        android:id="@+id/offset"
+        style="@style/TextStyle"
+        tools:text="74km NW of" />
+
+    <TextView
         android:id="@+id/location"
         style="@style/TextStyle"
         tools:text="San Francisco" />

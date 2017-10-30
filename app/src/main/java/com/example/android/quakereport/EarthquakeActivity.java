@@ -51,7 +51,7 @@ public class EarthquakeActivity extends AppCompatActivity {
 
         // Create an {@link EarthquakeAdapter}, whose data source is a list of {@link Earthquake}s. The
         // adapter knows how to create list items for each item in the list.
-        EarthquakeAdapter adapter = new EarthquakeAdapter(this, earthquakes);
+        final EarthquakeAdapter adapter = new EarthquakeAdapter(this, earthquakes);
 
         // Set the adapter on the {@link ListView}
         // so the list can be populated in the user interface
@@ -62,16 +62,17 @@ public class EarthquakeActivity extends AppCompatActivity {
 
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                // Get instance of Earthquake Array List
-                Earthquake earthquake = earthquakes.get(i);
+                // Find the current earthquake that was clicked on
+                Earthquake currentEarthquake = adapter.getItem(i);
 
-                // Get url
-                String link = earthquake.getUrl();
+                // Convert the String URL into a URI object (to pass into the Intent constructor)
+                Uri earthquakeUri = Uri.parse(currentEarthquake.getUrl());
 
-                // Create intent
-                Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse(link));
-                startActivity(intent);
+                // Create a new intent to view the earthquake URI
+                Intent websiteIntent = new Intent(Intent.ACTION_VIEW, earthquakeUri);
+
+                // Send the intent to launch a new activity
+                startActivity(websiteIntent);
             }
         });
     }

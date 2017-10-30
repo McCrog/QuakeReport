@@ -46,6 +46,8 @@ com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
 
+# Settings
+.settings/
 
 ### OSX template
 .DS_Store

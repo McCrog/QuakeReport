@@ -22,6 +22,9 @@ public class Earthquake {
      */
     private long mTimeInMilliseconds;
 
+    /** Link to USGS Event Page for event */
+    private String mUrl;
+
     /**
      * Constructs a new {@link Earthquake} object.
      *
@@ -29,11 +32,13 @@ public class Earthquake {
      * @param location is the city location of the earthquake
      * @param timeInMilliseconds is the time in milliseconds (from the Epoch) when the
      *  earthquake happened
+     * @param url is the link to USGS Event Page
      */
-    public Earthquake(double magnitude, String location, long timeInMilliseconds) {
+    public Earthquake(double magnitude, String location, long timeInMilliseconds, String url) {
         this.mMagnitude = magnitude;
         this.mLocation = location;
         this.mTimeInMilliseconds = timeInMilliseconds;
+        this.mUrl = url;
     }
 
     /** Get the magnitude */
@@ -49,5 +54,10 @@ public class Earthquake {
     /** Get the date */
     public long getTimeInMilliseconds() {
         return mTimeInMilliseconds;
+    }
+
+    /** Get the url */
+    public String getUrl() {
+        return mUrl;
     }
 }
